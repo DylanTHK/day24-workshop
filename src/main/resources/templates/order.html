@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drinks Shop</h1>
+    <p>Select a Drink</p>
+    <!-- receive info from index -->
+    <form method="POST" action="">
+        Name:
+        <input type="text" name="customerName">
+
+        <p>
+        <input type="radio" name="product" id="milo" value="Milo" checked="checked">
+        <label for="milo">Milo</label>
+        <br>
+
+        <input type="radio" name="product" id="horlicks" value="Horlicks">
+        <label for="horlicks">Horlicks</label>
+        <br>
+
+            <input type="radio" name="product" id="tea" value="Tea">
+            <label for="tea">Tea</label>
+            <br>
+        </p>
+        
+        <p>
+            Quantity
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit">Add Item</button>
+        </p>
+    </form>
+
+    <h1>Your Cart</h1>
+    <div>
+        <!-- add new cart information -->
+        <table>
+            <tr>
+                <th>Drink</th>
+                <th>Qty</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
