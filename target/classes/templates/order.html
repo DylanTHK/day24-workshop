@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
+    <span data-th-text="${order}"></span>
     <h1>Drinks Shop</h1>
     <p>Select a Drink</p>
     <!-- receive info from index -->
-    <form method="POST" action="">
-        Name:
-        <input type="text" name="customerName">
-
+    <form method="POST" action="" data-th-object="${order}">
+        <p>Name: <span data-th-text="*{customerName}"></span></p>
+        
         <p>
         <input type="radio" name="product" id="milo" value="Milo" checked="checked">
         <label for="milo">Milo</label>
@@ -36,8 +36,9 @@
         <p>
             Quantity
             <input type="number" name="quantity" min="1" value="1">
-            <button type="submit">Add Item</button>
         </p>
+
+        <button type="submit">Add Item</button>
     </form>
 
     <h1>Your Cart</h1>

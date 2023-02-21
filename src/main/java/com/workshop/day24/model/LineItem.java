@@ -1,12 +1,20 @@
 package com.workshop.day24.model;
 
+import org.springframework.util.MultiValueMap;
 
 public class LineItem {
-    private Integer id;
-    private String productName;
-    private Float unitPrice;
-    private Integer quantity;
-    private Integer productId; // to link products table
+    private Integer id; // delete if not required
+    private String productName; // from form
+    private Integer quantity; // from form
+    private Float unitPrice; // query sql
+    private Integer productId; // query sql
+
+    public LineItem() {
+    }
+
+    public LineItem(MultiValueMap<String, String> form) {
+        
+    }
 
     public Integer getId() {
         return id;

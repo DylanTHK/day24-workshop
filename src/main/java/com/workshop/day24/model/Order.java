@@ -1,14 +1,27 @@
 package com.workshop.day24.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
+
+import org.springframework.util.MultiValueMap;
 
 public class Order {
     private String orderId;
-    private Date orderDate;
+    private LocalDate orderDate;
     private String customerName;
     private List<LineItem> lineItems = new LinkedList<LineItem>();
+
+    public Order() {
+    }
+
+    public Order(MultiValueMap<String, String> form) {
+        this.orderId = generateRandomId();
+        this.customerName = form.getFirst("customerName");
+        // set today's date
+        this.orderDate = LocalDate.now();
+    }
 
     public String getOrderId() {
         return orderId;
@@ -16,10 +29,10 @@ public class Order {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
-    public Date getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
     public String getCustomerName() {
@@ -38,17 +51,18 @@ public class Order {
         this.lineItems.add(lineItem);
     }
 
-    public String generateId() {
-
-        return "";
+    // method to generate 8 char ID
+    public String generateRandomId() {
+        String id = UUID.randomUUID().toString().substring(0,8); 
+        System.out.println("UUID: " + id);
+        return id;
     }
 
-    public static Order create() {
-        Order o = new Order();
+    // public static Order create() {
+    //     Order o = new Order();
 
-
-        return o;
-    }
+    //     return o;
+    // }
 
     @Override
     public String toString() {
