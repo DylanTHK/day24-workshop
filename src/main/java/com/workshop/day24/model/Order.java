@@ -18,9 +18,8 @@ public class Order {
 
     public Order(MultiValueMap<String, String> form) {
         this.orderId = generateRandomId();
-        this.customerName = form.getFirst("customerName");
-        // set today's date
         this.orderDate = LocalDate.now();
+        this.customerName = form.getFirst("customerName");
     }
 
     public String getOrderId() {
@@ -47,7 +46,7 @@ public class Order {
     public void setLineItems(List<LineItem> lineItems) {
         this.lineItems = lineItems;
     }
-    public void addOrderDetails(LineItem lineItem) {
+    public void addLineItem(LineItem lineItem) {
         this.lineItems.add(lineItem);
     }
 

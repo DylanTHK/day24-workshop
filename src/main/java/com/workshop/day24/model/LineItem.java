@@ -1,31 +1,18 @@
 package com.workshop.day24.model;
 
-import org.springframework.util.MultiValueMap;
-
 public class LineItem {
-    private Integer id; // delete if not required
     private String productName; // from form
     private Integer quantity; // from form
     private Float unitPrice; // query sql
-    private Integer productId; // query sql
+    private Integer productId; // query sql (for inserting to SQL table)
 
     public LineItem() {
     }
 
-    public LineItem(MultiValueMap<String, String> form) {
-        
-    }
-
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public String getProduct() {
+    public String getProductName() {
         return productName;
     }
-    public void setProduct(String product) {
+    public void setProductName(String product) {
         this.productName = product;
     }
     public Integer getQuantity() {
@@ -49,7 +36,7 @@ public class LineItem {
 
     @Override
     public String toString() {
-        return "LineItem [id=" + id + ", product=" + productName + ", unitPrice=" + unitPrice + ", quantity=" + quantity
+        return "LineItem [productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice
                 + ", productId=" + productId + "]";
     }
 

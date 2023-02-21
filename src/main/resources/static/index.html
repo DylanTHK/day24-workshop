@@ -13,13 +13,17 @@
 
 </head>
 <body>
+    <p>
+        Session: 
+        <span data-th-text="${session.cart}"></span>
+    </p>
     <h1>Drinks Shop</h1>
-    <p>Select a Drink</p>
     <!-- link form to controller (Post) -->
-    <form method="POST" action="/cart">
+    <form method="POST" action="/order">
         Name:
         <input type="text" name="customerName">
-
+        
+        <p>Select a Drink</p>
         <p>
         <input type="radio" name="product" id="milo" value="Milo" checked="checked">
         <label for="milo">Milo</label>

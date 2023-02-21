@@ -14,11 +14,12 @@
 <body>
     <span data-th-text="${order}"></span>
     <h1>Drinks Shop</h1>
-    <p>Select a Drink</p>
+    
     <!-- receive info from index -->
-    <form method="POST" action="" data-th-object="${order}">
-        <p>Name: <span data-th-text="*{customerName}"></span></p>
+    <form method="POST" action="/order">
+        <p>Name: <span data-th-text="${order.customerName}"></span></p>
         
+        <p>Select a Drink</p>
         <p>
         <input type="radio" name="product" id="milo" value="Milo" checked="checked">
         <label for="milo">Milo</label>
@@ -44,16 +45,27 @@
     <h1>Your Cart</h1>
     <div>
         <!-- add new cart information -->
-        <table>
+        <table data-th-object="${order}">
             <tr>
                 <th>Drink</th>
                 <th>Qty</th>
+                <th>Price ($)</th>
+            </tr>
+            <tr data-th-each="i : *{lineItems}">
+                <td data-th-text="${i.productName}"></td>
+                <td data-th-text="${i.quantity}"></td>
+                <td data-th-text="${i.unitPrice}"></td>
             </tr>
             <tr>
+                <td>Total:</td>
                 <td></td>
-                <td></td>
+                <td data-th-text="${total}"></td>
             </tr>
         </table>
+        <br>
+        <form method="POST" action="/order/checkout">
+            <button type="submit">Checkout</button>
+        </form>
     </div>
 
 </body>
